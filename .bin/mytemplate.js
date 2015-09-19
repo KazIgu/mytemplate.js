@@ -10,15 +10,13 @@ var rimraf = require("rimraf");
 var home = process.env["HOME"]
 var local = home + "/.mytemplate/"
 
-console.log
-
 program
   .version('0.0.1');
 
 // new
 program
-  .command('new <name> [path]')
-  .description('create project')
+  .command('new <name> [project]')
+  .description('Create project from template')
   .action(function(name, pathName){
     create(name, pathName);
   });
@@ -26,7 +24,7 @@ program
 // add
 program
   .command('add <name>')
-  .description('add project')
+  .description('add your template')
   .action(function(name){
     add(name);
   });
@@ -34,7 +32,7 @@ program
 // remove
 program
   .command('rm <name>')
-  .description('remove project')
+  .description('Remove your template')
   .action(function(name){
     remove(name);
   });
@@ -43,7 +41,7 @@ program
 // list
 program
   .command('list')
-  .description('list project')
+  .description('List your templates')
   .action(function(){
     list();
   });
@@ -139,15 +137,6 @@ function remove(name) {
   rimraf(local + name, function(err){
     if (err) throw err;
   });
-  // glob(local + name, function(err, files){
-  //   if (err) throw err;
-  //   var fileList = files;
-
-  //   for(var i = 0; i < fileList.length; i++){
-  //     var file = fileList[i];
-  //     console.log( path.basename(file) );
-  //   }
-  // });
 }
 
 /**
