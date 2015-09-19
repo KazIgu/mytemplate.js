@@ -55,7 +55,7 @@ function create(name, pathName) {
   pathName = path.join(fs.realpathSync('./'), pathName)
   mkdir(pathName);
 
-  glob(local + name + "/**/*",function(err, files){
+  glob(local + name + "/**/*", {dot:true},function(err, files){
     if (err) throw err;
     fileList = files;
 
@@ -66,7 +66,7 @@ function create(name, pathName) {
       mkdir(pathName + dirName);
     }
 
-    glob(local + name + "/**/*", {nodir: true},function(err, files){
+    glob(local + name + "/**/*", {dot:true, nodir: true},function(err, files){
       if (err) throw err;
       fileList = files;
 
@@ -90,7 +90,7 @@ function add(name) {
   mkdir(local);
   mkdir(template);
 
-  glob('**/*',function(err, files){
+  glob('**/*', {dot:true}, function(err, files){
     if (err) throw err;
     fileList = files;
 
@@ -100,7 +100,7 @@ function add(name) {
       mkdir(template + dirName);
     }
 
-    glob('**/*', {nodir: true},function(err, files){
+    glob('**/*', {dot:true, nodir: true},function(err, files){
       if (err) throw err;
       fileList = files;
 
