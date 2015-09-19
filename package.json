@@ -1,0 +1,23 @@
+{
+  "name": "mytemplate",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.8.1",
+    "del": "^2.0.2",
+    "fs": "0.0.2",
+    "glob": "^5.0.14",
+    "mkdirp": "^0.5.1",
+    "path": "^0.11.14",
+    "rimraf": "^2.4.3"
+  },
+  "bin": {
+    "mytemplate": ".bin/mytemplate.js"
+  }
+}
