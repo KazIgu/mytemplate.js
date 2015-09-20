@@ -7,8 +7,8 @@ var path = require('path');
 var glob = require("glob");
 var rimraf = require("rimraf");
 
-var home = process.env["HOME"]
-var local = home + "/.mytemplate/"
+var home = process.env["HOME"];
+var local = home + "/.mytemplate/";
 
 program
   .version('0.0.1');
@@ -62,7 +62,7 @@ function create(name, pathName) {
     for(var i = 0; i < fileList.length; i++){
       var file = fileList[i];
       var dirName = path.dirname(file);
-      var dirName = dirName.replace(local + name, "")
+      var dirName = dirName.replace(local + name, "");
       mkdir(pathName + dirName);
     }
 
@@ -72,7 +72,7 @@ function create(name, pathName) {
 
       for(var i = 0; i < fileList.length; i++){
         var file = fileList[i];
-        var target = file.replace(local + name, "")
+        var target = file.replace(local + name, "");
         write(pathName + target, loadLocalTemplate(file));
       }
     });
